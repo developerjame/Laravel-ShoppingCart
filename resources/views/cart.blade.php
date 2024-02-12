@@ -191,7 +191,7 @@
     <input type="hidden" id="rowId_D" name="rowId" />
 </form>
 
-<form id="clearCart" action="{{route(cart.clear)}}" method="post">
+<form id="clearCart" action="{{route('cart.clear')}}" method="post">
     @csrf
     @method('delete')
 </form>

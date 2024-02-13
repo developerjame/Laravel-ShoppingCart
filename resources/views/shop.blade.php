@@ -399,11 +399,11 @@
                                 <div class="page-view-filter">
                                     <div class="dropdown select-featured">
                                         <select class="form-select" name="orderby" id="orderby">
-                                            <option value="-1" selected="">Default</option>
-                                            <option value="1">Date, New To Old</option>
-                                            <option value="2">Date, Old To New</option>
-                                            <option value="3">Price, Low To High</option>
-                                            <option value="4">Price, High To Low</option>
+                                            <option value="-1" {{ $order==-1? 'selected':''}}>Default</option>
+                                            <option value="1" {{ $order==1? 'selected':''}}>Date, New To Old</option>
+                                            <option value="2" {{ $order==2? 'selected':''}}>Date, Old To New</option>
+                                            <option value="3" {{ $order==3? 'selected':''}}>Price, Low To High</option>
+                                            <option value="4" {{ $order==4? 'selected':''}}>Price, High To Low</option>
                                         </select>
                                     </div>
                                 </div>
@@ -528,7 +528,7 @@
 
 
                 </div>
-                {{$products->links("pagination.default")}}
+                {{$products->withQueryString()->links("pagination.default")}}
                 
 
             </div>
@@ -563,6 +563,7 @@
 <form id="frmFliter" method="GET">
     <input type="hidden" name="page" id="page" value="{{$page}}" />
     <input type="hidden" name="size" id="size" value="{{$size}}" />
+    <input type="hidden" name="order" id="order" value="{{$order}}" />
 </form>  
 @endsection
 
@@ -572,5 +573,11 @@
             $("#size").val($("#pagesize option:selected").val());
             $("#frmFliter").submit();
         });
+
+        $("#ordersize").on("change",function(){
+            $("#order").val($("#orderby option:selected").val());
+            $("#frmFliter").submit();
+        });
+
     </script>
 @endpush

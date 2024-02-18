@@ -438,7 +438,7 @@
 </section>
 <!-- Subscribe Section End --> 
 <form id="frmFilter" method="GET">
-    <input type="hidden" name="page" id="page" value="{{}}" />
+    <input type="hidden" name="page" id="page" value="{{$page}}" />
     <input type="hidden" name="size" id="size" value="{{}}" />
     <input type="hidden" name="order" id="order" value="{{}}" />
     <input type="hidden" name="brands" id="brands" value="{{$q_brands}}" />
